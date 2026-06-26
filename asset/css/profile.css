@@ -1,1 +1,530 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  background: #0b0d12;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+.container {
+  width: 1200px;
+  max-width: 95%;
+  margin: 40px auto;
+}
+
+.profileCard,
+.card {
+  margin-top: 10px;
+  background: #151922;
+  border: 1px solid #232834;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.profileTop {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+#title {
+  padding-right: flex; /* 버튼 공간 확보 */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+#title img {
+  width: 90px;
+  height: 90px;
+}
+
+.rankBadgeLarge {
+  margin-left: auto;
+}
+
+.stats {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.statCard {
+  flex: 1;
+
+  background: #121722;
+  border: 1px solid #232834;
+  border-radius: 14px;
+
+  padding: 18px;
+
+  text-align: center;
+
+  transition: 0.2s;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+  border-color: #3d465a;
+}
+
+.statLabel {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #7b859b;
+
+  margin-bottom: 18px;
+}
+
+.statMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  min-height: 48px;
+}
+
+/* MMR */
+.mmr {
+  font-size: 34px;
+  font-weight: 800;
+  color: #fff;
+
+  line-height: 1;
+}
+
+/* 승률 */
+.statCard:nth-child(2) .statMain {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+}
+
+/* 종족 */
+.raceIconLarge {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.mmr {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.statMain .tier {
+  transform: scale(1.1);
+}
+
+.accountList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.handleChip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #0f131b;
+  border: 1px solid #252c39;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.handleChip:hover {
+  background: #181e29;
+  transform: translateY(-2px);
+}
+
+.chipAlias {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.chipMMR {
+  color: #4da3ff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.tier {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.rank-s {
+  background: #2c2100;
+  color: #ffd43b;
+  border: 1px solid #ffc107;
+  box-shadow: 0 0 15px #ffc10788;
+}
+
+.rank-a {
+  background: #2a0000;
+  color: #ff5a36;
+  border: 1px solid #ff3300;
+  box-shadow: 0 0 15px #ff330088;
+}
+
+.rank-b {
+  background: #250028;
+  color: #e056ff;
+  border: 1px solid #d400ff;
+  box-shadow: 0 0 15px #d400ff88;
+}
+
+.rank-c {
+  background: #001f3f;
+  color: #4da3ff;
+  border: 1px solid #2483ff;
+  box-shadow: 0 0 15px #2483ff88;
+}
+
+.rank-d {
+  background: #00292c;
+  color: #31f0ff;
+  border: 1px solid #00e5ff;
+  box-shadow: 0 0 15px #00e5ff88;
+}
+
+.rank-e {
+  background: #00281d;
+  color: #3cffb5;
+  border: 1px solid #00ff99;
+  box-shadow: 0 0 15px #00ff9988;
+}
+
+.rank-f {
+  background: #1e1e1e;
+  color: #d9d9d9;
+  border: 1px solid #a0a0a0;
+  box-shadow: 0 0 15px #aaaaaa55;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #0f131b;
+}
+
+th {
+  text-align: center;
+  padding: 14px;
+  color: #8f9bb0;
+}
+
+td {
+  text-align: center;
+  padding: 14px;
+  border-top: 1px solid #232834;
+}
+
+.win {
+  color: #00ff99;
+  font-weight: 700;
+}
+
+.lose {
+  color: #ff5a5a;
+  font-weight: 700;
+}
+
+.opponentLink {
+  display: inline-block;
+  color: #4da3ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.raceIconLarge {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+tbody tr {
+  transition: 0.2s;
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.replayBtn,
+.chatBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 12px;
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  color: #fff;
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  cursor: pointer;
+
+  transition: all 0.18s ease;
+  backdrop-filter: blur(6px);
+}
+
+/* hover 효과 */
+.opponentLink:hover,
+.replayBtn:hover,
+.chatBtn:hover {
+  background: #bfdbfe;
+  border-color: #bfdbfe;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.35);
+  transition: all 0.2s ease;
+}
+
+/* 클릭 느낌 */
+.opponentLink:active,
+.replayBtn:active,
+.chatBtn:active {
+  transform: translateY(0px);
+  box-shadow: 0 3px 10px rgba(59, 130, 246, 0.2);
+}
+
+/* 배경 오버레이 */
+.chatModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+/* 팝업 박스 */
+.chatBox {
+  width: 420px;
+  height: 520px;
+
+  background: #0f1115;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  animation: pop 0.15s ease-out;
+}
+
+/* 등장 애니메이션 */
+@keyframes pop {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 헤더 */
+.chatHeader {
+  padding: 12px 14px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #151923;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.chatTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #e5e7eb;
+  letter-spacing: 0.3px;
+}
+
+/* 닫기 버튼 */
+.closeBtn {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+
+  font-size: 16px;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.closeBtn:hover {
+  color: white;
+}
+
+/* 채팅 영역 */
+.chatBody {
+  flex: 1;
+  padding: 12px;
+
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 스크롤바 */
+.chatBody::-webkit-scrollbar {
+  width: 6px;
+}
+.chatBody::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+/* 말풍선 공통 */
+.chatMsg {
+  max-width: 80%;
+  padding: 8px 10px;
+
+  font-size: 12px;
+  line-height: 1.3;
+
+  border-radius: 10px;
+
+  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* 내가 보낸 메시지 */
+.chatMsg.me {
+  align-self: flex-end;
+  background: rgba(59, 130, 246, 0.25);
+  border-color: rgba(59, 130, 246, 0.35);
+}
+
+/* 상대 메시지 */
+.chatMsg.other {
+  align-self: flex-start;
+}
+
+/* 이름 */
+.chatName {
+  font-size: 10px;
+  opacity: 0.7;
+  margin-bottom: 2px;
+}
+
+/* hidden */
+.hidden {
+  display: none;
+}
+
+.homeBtn {
+  position: relative;
+  margin-left: auto;
+  padding: 6px 10px;
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.homeBtn:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  transform: translateY(-1px);
+}
+
+.empty-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: radial-gradient(circle at top, #111, #000);
+  color: white;
+  font-family: sans-serif;
+}
+
+.empty-card {
+  text-align: center;
+  padding: 40px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.empty-icon {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.empty-btn {
+  position: relative;
+  margin-top: 15px;
+  padding: 10px 16px;
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.empty-btn:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  transform: translateY(-1px);
+}
