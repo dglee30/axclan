@@ -1,9 +1,3 @@
-/*
-	Eventually by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 (function () {
   'use strict';
 
@@ -109,7 +103,7 @@
       return;
     }
 
-    const url = `${API}/player_profile_view?select=*&alias=ilike.${encodeURIComponent(keyword)}*&limit=10`;
+     const url = `${API}/player_profile_view?select=*&or=(alias.ilike.*${encodeURIComponent(keyword)}*,battlenet_name.ilike.*${encodeURIComponent(keyword)}*)&limit=10`;
 
     const res = await fetch(url, {
       headers: { apikey: KEY },
