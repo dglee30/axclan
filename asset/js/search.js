@@ -233,6 +233,6 @@
 
     if (!item) return;
 
-    location.href = `profile.html?alias=${encodeURIComponent(item.dataset.alias)}&battlenet_account=${encodeURIComponent(item.dataset.accountId)}`;
+    location.href = `profile.html?alias=${encodeURIComponent(item.dataset.alias)}&account_id=${encodeURIComponent(item.dataset.accountId)}`;
   });
 })();
