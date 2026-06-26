@@ -67,7 +67,7 @@ async function load() {
       losses: player?.losses ?? 0,
 
       hasData,
-      battlenetaccount: player?.battlenet_account ?? null
+      accountId: player?.account_id ?? null
     };
   });
 
@@ -161,7 +161,7 @@ function render() {
         <td>${badge}</td>
 
         <td>
-          <a href="profile.html?alias=${encodeURIComponent(p.alias)}&battlenet_account=${encodeURIComponent(p.battlenetaccount)}">
+          <a href="profile.html?alias=${encodeURIComponent(p.alias)}&account_id=${encodeURIComponent(p.accountId)}">
             ${p.alias}
           </a>
         </td>
