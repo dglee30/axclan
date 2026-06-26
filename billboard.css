@@ -1,0 +1,381 @@
+/* =========================
+   GLOBAL THEME
+========================= */
+:root {
+  --bg: #070a12;
+  --panel: rgba(255,255,255,0.04);
+  --panel-strong: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.08);
+
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+
+  --blue: #3b82f6;
+  --blue-soft: rgba(59,130,246,0.15);
+
+  --gold: #facc15;
+  --silver: #cbd5e1;
+  --bronze: #fb923c;
+}
+
+/* =========================
+   BASE
+========================= */
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #0b1220, var(--bg));
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: var(--text);
+}
+
+/* =========================
+   WRAPPER CARD
+========================= */
+.table-wrap {
+  max-width: 900px;      /* 👈 핵심 (너비 제한) */
+  margin: 30px auto;     /* 가운데 정렬 */
+  padding: 0 16px;
+  border-radius: 18px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+
+  border-radius: 16px;
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* =========================
+   HEADER
+========================= */
+thead th {
+  text-align: center; 
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: var(--muted);
+  padding: 14px 16px;
+
+  background: rgba(15, 23, 42, 0.6);
+  border-bottom: 1px solid var(--border);
+}
+
+/* =========================
+   ROW BASE
+========================= */
+tbody tr {
+  transition: all 0.2s ease;
+}
+
+tbody tr:hover {
+  background: var(--blue-soft);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   CELL
+========================= */
+td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--text);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+/* =========================
+   NAME LINK
+========================= */
+td a {
+  color: #93c5fd;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+td a:hover {
+  color: #bfdbfe;
+}
+
+/* =========================
+   RATING (핵심 강조)
+========================= */
+td:nth-child(3) {
+  font-weight: 700;
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+}
+
+/* =========================
+   RANK BADGE
+========================= */
+.rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 40px;
+  padding: 4px 10px;
+  border-radius: 8px;
+
+  font-weight: 700;
+  font-size: 12px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+}
+
+/* =========================
+   TOP 3 PREMIUM LOOK
+========================= */
+tbody tr:nth-child(1) {
+  background: linear-gradient(90deg, rgba(250,204,21,0.10), transparent);
+  border-left: 3px solid var(--gold);
+}
+
+tbody tr:nth-child(2) {
+  background: linear-gradient(90deg, rgba(203,213,225,0.08), transparent);
+  border-left: 3px solid var(--silver);
+}
+
+tbody tr:nth-child(3) {
+  background: linear-gradient(90deg, rgba(251,146,60,0.08), transparent);
+  border-left: 3px solid var(--bronze);
+}
+
+/* =========================
+   TOP 1 SPOTLIGHT (핵심)
+========================= */
+tbody tr:nth-child(1) {
+  position: relative;
+  animation: spotlight 2.5s infinite;
+}
+
+@keyframes spotlight {
+  0% {
+    box-shadow: 0 0 0 rgba(250,204,21,0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(250,204,21,0.25);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(250,204,21,0.15);
+  }
+}
+
+/* =========================
+   NO DATA STYLE
+========================= */
+.no-data {
+  opacity: 0.45;
+  color: var(--muted);
+}
+
+/* =========================
+   SMOOTH TABLE FEEL
+========================= */
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tier{
+    width:20px;
+    height:20px;
+
+    border-radius:8px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:15px;
+    font-weight:800;
+    margin: auto;
+    margin-top: 8px;
+
+}
+
+.tier-s{
+    background:#2c2100;
+    color:#ffd43b;
+    border:1px solid #ffc107;
+    box-shadow:0 0 15px #ffc10788;
+}
+
+.tier-a{
+    background:#2a0000;
+    color:#ff5a36;
+    border:1px solid #ff3300;
+    box-shadow:0 0 15px #ff330088;
+}
+
+.tier-b{
+    background:#250028;
+    color:#e056ff;
+    border:1px solid #d400ff;
+    box-shadow:0 0 15px #d400ff88;
+}
+
+.tier-c{
+    background:#001f3f;
+    color:#4da3ff;
+    border:1px solid #2483ff;
+    box-shadow:0 0 15px #2483ff88;
+}
+
+.tier-d{
+    background:#00292c;
+    color:#31f0ff;
+    border:1px solid #00e5ff;
+    box-shadow:0 0 15px #00e5ff88;
+}
+
+.tier-e{
+    background:#00281d;
+    color:#3cffb5;
+    border:1px solid #00ff99;
+    box-shadow:0 0 15px #00ff9988;
+}
+
+.tier-f{
+    background:#1e1e1e;
+    color:#d9d9d9;
+    border:1px solid #a0a0a0;
+    box-shadow:0 0 15px #aaaaaa55;
+}
+
+.header {
+
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+
+}
+
+.header h1 {
+  text-align: center;   /* 테이블이랑 자연스럽게 맞추려면 left 추천 */
+  margin: 10px 0 20px 0;
+
+  font-size: 28px;
+  font-weight: 800;
+  color: #e5e7eb;
+  letter-spacing: 0.5px;
+
+  margin: 20px 0 10px 0;
+}
+
+/* =========================
+   CONTROL BAR (glass panel)
+========================= */
+.controls {
+  position: sticky;
+  top: 10px;
+  z-index: 100;
+  display: flex;
+  gap: 10px;
+
+  padding: 10px 12px;
+  margin: 10px auto 20px auto;
+
+  width: fit-content;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* 왼쪽 필터 */
+.filter-group {
+  display: flex;
+  gap: 8px;
+}
+
+/* 오른쪽 네비 */
+.nav-group {
+  display: flex;
+  gap: 8px;
+}
+
+/* =========================
+   BUTTON BASE
+========================= */
+.filter-btn {
+  padding: 8px 14px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: #94a3b8;
+
+  background: transparent;
+  border: 1px solid transparent;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+/* =========================
+   HOVER
+========================= */
+.filter-btn:hover {
+  color: #e5e7eb;
+  background: rgba(59,130,246,0.12);
+  border-color: rgba(59,130,246,0.25);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   ACTIVE STATE (핵심)
+========================= */
+.filter-btn.active {
+  background: rgba(59,130,246,0.2);
+  border: 1px solid rgba(59,130,246,0.4);
+  color: #ffffff;
+
+  box-shadow: 0 0 18px rgba(59,130,246,0.25);
+}
+
+.raceIconLarge {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.homeBtn {
+  position: relative;
+  margin-left: auto;
+  padding: 6px 10px;
+  border-radius: 8px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.homeBtn:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  transform: translateY(-1px);
+}
