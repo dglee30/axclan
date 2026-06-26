@@ -2,13 +2,16 @@ const API = 'https://xmploueumzkrdvapbyfs.supabase.co/rest/v1';
 const KEY =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhtcGxvdWV1bXprcmR2YXBieWZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzI4ODY5MTQsImV4cCI6MTk4ODQ2MjkxNH0.p8Jkm2fnFzzy7YYdCs0NVjBdqLmUzvBFJjdf3V0bHuo';
 
-const alias = new URLSearchParams(location.search).get('alias');
+const params = new URLSearchParams(location.search);
+
+const alias = params.get('alias');
+const battlenetAccount = params.get('battlenet_account');
 // ✅ 전역 저장
 let currentMatches = [];
 let gateway = null;
 
 async function load() {
-  const id_url = `${API}/player_profile_view?select=*&alias=ilike.${encodeURIComponent(alias)}`;
+  const id_url = `${API}/player_profile_view?select=*&alias=ilike.${encodeURIComponent(alias)}&battlenet_account=eq.${encodeURIComponent(battlenetAccount)}`;
 
   const profile = await fetch(id_url, {
     headers: { apikey: KEY },
