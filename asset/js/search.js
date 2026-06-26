@@ -103,7 +103,7 @@
       return;
     }
 
-     const url = `${API}/player_profile_view?select=*&or=(alias.ilike.*${encodeURIComponent(keyword)}*,battlenet_name.ilike.*${encodeURIComponent(keyword)}*)&limit=10`;
+     const url = `${API}/player_profile_view?select=*&or=(alias.ilike.${encodeURIComponent(keyword)}*,battlenet_name.ilike.${encodeURIComponent(keyword)}*)&limit=10`;
 
     const res = await fetch(url, {
       headers: { apikey: KEY },
