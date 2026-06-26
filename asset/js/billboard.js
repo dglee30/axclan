@@ -14,7 +14,7 @@ async function load() {
   // ---------------------------
   // 1. 클랜 전체 명단 (기준)
   // ---------------------------
-  const res1 = await fetch('assets/json/clan-members.json');
+  const res1 = await fetch('asset/json/clan-members.json');
   jsonData = await res1.json();
 
   // alias OR 조건 생성
