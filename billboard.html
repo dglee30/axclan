@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="assets/css/billboard.css" />
+    <title>AX Clan ladder Rank</title>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>AX Clan Ladder Ranking</h1>
+    </div>
+
+    <div class="controls">
+      <div class="filter-group">
+        <button class="filter-btn active" onclick="setFilter('ALL')">
+          전체
+        </button>
+        <button class="filter-btn" onclick="setFilter('Zerg')">Zerg</button>
+        <button class="filter-btn" onclick="setFilter('Terran')">Terran</button>
+        <button class="filter-btn" onclick="setFilter('Protoss')">
+          Protoss
+        </button>
+      </div>
+
+      <div class="nav-group">
+        <button class="homeBtn" onclick="location.href = 'search.html'">
+          🔍 Search
+        </button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>순위</th>
+            <th>아이디</th>
+            <th>점수</th>
+            <th>등급</th>
+            <th>티어</th>
+            <th>종족</th>
+          </tr>
+        </thead>
+
+        <tbody id="body"></tbody>
+      </table>
+    </div>
+
+    <script src="assets/js/billboard.js"></script>
+  </body>
+</html>

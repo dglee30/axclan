@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Player Profile</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="assets/css/profile.css" />
+  </head>
+  <body>
+    <div class="bg"></div>
+
+    <div class="container">
+      <!-- HEADER CARD -->
+      <div class="profileCard">
+        <div class="profileTop">
+          <div id="title" class="title"></div>
+          <div>
+            <button class="homeBtn" onclick="location.href = 'search.html'">
+              🔍️Search
+            </button>
+            <button class="homeBtn" onclick="location.href = 'billboard.html'">
+              🏆Rank
+            </button>
+            <button id="updateBtn" class="homeBtn" onclick="updatePlayer()">
+              🔄 Update
+            </button>
+          </div>
+        </div>
+
+        <div id="meta" class="meta"></div>
+
+        <div id="stats" class="stats"></div>
+
+        <div class="card">
+          <h3>Battle.net Account Characters</h3>
+          <div id="accountList" class="accountList"></div>
+        </div>
+      </div>
+
+      <!-- MATCH TABLE -->
+      <div class="card">
+        <h3>Recent Matches</h3>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Result</th>
+              <th>Opponent</th>
+              <th>Map</th>
+              <th>Date</th>
+              <th>Replay</th>
+              <th>Chat</th>
+            </tr>
+          </thead>
+          <tbody id="matches"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="assets/js/profile.js"></script>
+  </body>
+
+  <!-- CHAT MODAL -->
+  <div id="chatModal" class="chatModal hidden">
+    <div class="chatBox">
+      <div class="chatHeader">
+        <span>💬 Match Chat</span>
+        <button onclick="closeChat()">✖</button>
+      </div>
+
+      <div id="chatBody" class="chatBody"></div>
+    </div>
+  </div>
+</html>
