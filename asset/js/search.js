@@ -200,7 +200,8 @@
         (v) => `
 
 <div class="suggestion-item"
-     data-alias="${v.alias}">
+     data-alias="${v.alias}"
+	 data-battlenet-account="${v.battlenet_account}">
 
     <div class="s-left">
 
@@ -232,6 +233,6 @@
 
     if (!item) return;
 
-    location.href = `profile.html?alias=${encodeURIComponent(item.dataset.alias)}`;
+    location.href = `profile.html?alias=${encodeURIComponent(item.dataset.alias)}&battlenet_account=${encodeURIComponent(item.dataset.battlenetAccount)}`;
   });
 })();
