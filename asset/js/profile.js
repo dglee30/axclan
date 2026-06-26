@@ -5,13 +5,13 @@ const KEY =
 const params = new URLSearchParams(location.search);
 
 const alias = params.get('alias');
-const accountId = params.get('account_id');
+const gateway = params.get('gateway');
 // ✅ 전역 저장
 let currentMatches = [];
 let gateway = null;
 
 async function load() {
-  const id_url = `${API}/player_profile_view?select=*&alias=ilike.${encodeURIComponent(alias)}&account_id=eq.${encodeURIComponent(accountId)}`;
+  const id_url = `${API}/player_profile_view?select=*&alias=ilike.${encodeURIComponent(alias)}&gateway=eq.${encodeURIComponent(gateway)}`;
 
   const profile = await fetch(id_url, {
     headers: { apikey: KEY },
