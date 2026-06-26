@@ -8,7 +8,6 @@ const alias = params.get('alias');
 const gateway = params.get('gateway');
 // ✅ 전역 저장
 let currentMatches = [];
-let gateway = null;
 
 async function load() {
   const id_url = `${API}/player_profile_view?select=*&alias=ilike.${encodeURIComponent(alias)}&gateway=eq.${encodeURIComponent(gateway)}`;
@@ -28,7 +27,6 @@ async function load() {
   const p = profile[0];
 
   const account = p.battlenet_account;
-  gateway = p.gateway;
 
   const account_url = `${API}/player_other_handles_view?select=*&battlenet_account=eq.${account}`;
 
@@ -113,7 +111,7 @@ function render(p, handles, updates, matches) {
         .map(
           (h) => `
           <div class="handleChip"
-               onclick="location.href='profile.html?alias=${encodeURIComponent(h.alias)}'">
+               onclick="location.href='profile.html?alias=${encodeURIComponent(h.alias)}&gateway=${encodeURIComponent(h.gateway)}'">
 
             <span class="tier ${getRankClass(h.rank)}">
               ${h.rank || '-'}
@@ -170,7 +168,7 @@ function render(p, handles, updates, matches) {
         </td>
 
         <td>
-          <a href="profile.html?alias=${encodeURIComponent(m.opponent_alias)}&account_id${encodeURIComponent(m.opponent_account_id)}"
+          <a href="profile.html?alias=${encodeURIComponent(m.opponent_alias)}&gateway${encodeURIComponent(m.opponent_gateway)}"
              class="opponentLink">
             ${m.opponent_alias}
           </a>
