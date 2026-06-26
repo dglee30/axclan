@@ -6,7 +6,7 @@ const params = new URLSearchParams(location.search);
 
 const alias = params.get('alias');
 const gateway = params.get('gateway');
-// ✅ 전역 저장
+// 전역 저장
 let currentMatches = [];
 
 async function load() {
@@ -17,7 +17,7 @@ async function load() {
   }).then((r) => r.json());
 
   // -----------------------------
-  // 🚨 유저 데이터 없을 때 UI
+  //  유저 데이터 없을 때 UI
   // -----------------------------
   if (!profile || profile.length === 0) {
     renderEmptyState(alias);
