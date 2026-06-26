@@ -201,7 +201,7 @@
 
 <div class="suggestion-item"
      data-alias="${v.alias}"
-	 data-account-id="${v.account_id}">
+	 data-gateway="${v.gateway}">
 
     <div class="s-left">
 
@@ -233,6 +233,6 @@
 
     if (!item) return;
 
-    location.href = `profile.html?alias=${encodeURIComponent(item.dataset.alias)}&account_id=${encodeURIComponent(item.dataset.accountId)}`;
+    location.href = `profile.html?alias=${encodeURIComponent(item.dataset.alias)}&gateway=${encodeURIComponent(item.dataset.gateway)}`;
   });
 })();
