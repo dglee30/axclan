@@ -170,7 +170,7 @@ function render(p, handles, updates, matches) {
         </td>
 
         <td>
-          <a href="profile.html?alias=${encodeURIComponent(m.opponent_alias)}"
+          <a href="profile.html?alias=${encodeURIComponent(m.opponent_alias)}&account_id${encodeURIComponent(m.opponent_account_id)}"
              class="opponentLink">
             ${m.opponent_alias}
           </a>
