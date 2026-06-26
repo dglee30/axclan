@@ -67,7 +67,7 @@ async function load() {
       losses: player?.losses ?? 0,
 
       hasData,
-      accountId: player?.account_id ?? null
+      gateway: player?.gateway ?? null
     };
   });
 
@@ -161,7 +161,7 @@ function render() {
         <td>${badge}</td>
 
         <td>
-          <a href="profile.html?alias=${encodeURIComponent(p.alias)}&account_id=${encodeURIComponent(p.accountId)}">
+          <a href="profile.html?alias=${encodeURIComponent(p.alias)}&gateway=${encodeURIComponent(p.gateway)}">
             ${p.alias}
           </a>
         </td>
