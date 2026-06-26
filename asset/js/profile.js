@@ -168,7 +168,7 @@ function render(p, handles, updates, matches) {
         </td>
 
         <td>
-          <a href="profile.html?alias=${encodeURIComponent(m.opponent_alias)}&gateway${encodeURIComponent(m.opponent_gateway)}"
+          <a href="profile.html?alias=${encodeURIComponent(m.opponent_alias)}&gateway=${encodeURIComponent(m.opponent_gateway)}"
              class="opponentLink">
             ${m.opponent_alias}
           </a>
