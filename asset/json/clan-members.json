@@ -10,8 +10,8 @@
   { "alias": "AX_Clear", "race": "Terran", "grade": "G" },
   { "alias": "AX_Buzz", "race": "Zerg", "grade": "G" },
   { "alias": "AX_Tatum", "race": "Protoss", "grade": "G" },
-  { "alias": "AX_ASTER", "race": "Zerg", "grade": "G" },
   { "alias": "AX_Ohtani", "race": "Terran", "grade": "G" },
+  { "alias": "AX_Aster", "race": "Zerg", "grade": "G" },
 
   { "alias": "AX_TigEr", "race": "Protoss", "grade": "0" },
   { "alias": "AX_hogu", "race": "Zerg", "grade": "0" },
@@ -111,6 +111,10 @@
   { "alias": "AX_Broller", "race": "Zerg", "grade": "4" },
   { "alias": "AX_KINGCONG", "race": "Protoss", "grade": "4" },
 
-  { "alias": "AX_Vexor", "race": "Protoss", "grade": "-" },
-  { "alias": "AX_Mong", "race": "Zerg", "grade": "-" }
+  { "alias": "AX_Vexor", "race": "Protoss", "grade": "0" },
+  { "alias": "AX_Mong", "race": "Zerg", "grade": "2" },
+  { "alias": "AX_Eastlight", "race": "Protoss", "grade": "0" },
+  { "alias": "Ax_joker", "race": "Terran", "grade": "1" },
+  { "alias": "AX_Chunki", "race": "Protoss", "grade": "2" },
+  { "alias": "AX_Power", "race": "Protoss", "grade": "3" }
 ]
