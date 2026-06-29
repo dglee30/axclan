@@ -478,6 +478,20 @@ tbody tr:hover {
   border-color: #3b82f6;
   transform: translateY(-1px);
 }
+/* 업데이트 버튼 클릭시 스핀 */
+.spin {
+  display: inline-block;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 .empty-container {
   height: 100vh;
