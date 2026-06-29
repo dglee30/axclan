@@ -287,9 +287,13 @@ async function waitForUpdate() {
 
 async function updatePlayer() {
   const btn = document.getElementById('updateBtn');
+  const icon = document.getElementById('updateIcon');
+  const text = document.getElementById('updateText');
 
   btn.disabled = true;
-  btn.textContent = 'Updating...';
+  icon.textContent = '⏳';
+  icon.classList.add('spin');
+  text.textContent = 'Updating';
 
   try {
     const res = await fetch('https://v2.api.cwal.gg/player-update', {
@@ -307,14 +311,30 @@ async function updatePlayer() {
 
     await waitForUpdate();
 
-    btn.textContent = '✔ Updated';
+    // 업데이트 완료
+    let seconds = 60;
+
+    icon.classList.remove('spin');
+    icon.textContent = `🔒`;
+    text.textContent = `${seconds}초 후 재업데이트`;
+
+    const timer = setInterval(() => {
+      seconds--;
+
+      if (seconds > 0) {
+        icon.textContent = `🔒`;
+        text.textContent = `${seconds}초 후 재업데이트`;
+      } else {
+        clearInterval(timer);
+        btn.disabled = false;
+        icon.textContent = `🔄`;
+        text.textContent = 'Update';
+      }
+    }, 1000);
   } catch (err) {
     console.error(err);
     alert('업데이트 실패');
   }
-
-  btn.disabled = false;
-  btn.textContent = '🔄 Update';
 }
 
 load();
