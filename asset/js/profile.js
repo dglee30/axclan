@@ -40,6 +40,8 @@ async function load() {
     headers: { apikey: KEY },
   }).then((r) => r.json());
 
+  console.log(updates);
+
   const match_list_url = `${API}/player_matches?select=*&order=timestamp.desc&offset=0&limit=20&aurora_id=eq.${account}&gateway=eq.${gateway}&alias=ilike.${alias}`;
 
   const matches = await fetch(match_list_url, {
@@ -49,17 +51,19 @@ async function load() {
   currentMatches = matches;
 
   render(p, handles, updates, matches);
+
+  startUpdateTime(updates[0].last_updated);
 }
 
 //---------------------------
-// MATCHES DODGE
+// 매칭 닷지 표시
 //----------------------------
 function isDodge(match) {
   return match.duration < 120;
 }
 
 // -----------------------------
-// RANK CLASS
+// 레더 등급값
 // -----------------------------
 function getRankClass(rank) {
   switch (rank) {
@@ -81,7 +85,7 @@ function getRankClass(rank) {
 }
 
 // -----------------------------
-// WINRATE
+// 승률 계산
 // -----------------------------
 function calcWR(p) {
   const t = (p.wins || 0) + (p.losses || 0);
@@ -196,7 +200,7 @@ function render(p, handles, updates, matches) {
 }
 
 // -----------------------------
-// CHAT POPUP
+// 채팅 로그 팝업창
 // -----------------------------
 function showChat(index) {
   const match = currentMatches[index];
@@ -230,7 +234,7 @@ function closeChat() {
 }
 
 // -----------------------------
-// 🚨 EMPTY STATE UI
+// 조회 되지 않는 유저 표시
 // -----------------------------
 function renderEmptyState(alias) {
   document.body.innerHTML = `
@@ -256,6 +260,58 @@ function renderEmptyState(alias) {
 //----------------------------
 // UPDATE
 //-----------------------------
+function timeAgo(dateString) {
+  const now = new Date();
+  const date = new Date(dateString);
+
+  const seconds = Math.floor((now - date) / 1000);
+
+  if (seconds < 0) seconds = 0;
+
+  if (seconds < 60) return `${seconds} seconds ago`;
+
+  const minutes = Math.floor(seconds / 60);
+  if (minutes < 60) return `${minutes} minutes ago`;
+
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours} hors ago`;
+
+  const days = Math.floor(hours / 24);
+  if (days < 7) return `${days} days ago`;
+
+  const weeks = Math.floor(days / 7);
+  if (weeks < 4) return `${weeks} weeks ago`;
+
+  const months = Math.floor(days / 30);
+  if (months < 12) return `${months} months ago`;
+
+  return `${Math.floor(days / 365)} years ago`;
+}
+
+let updateTimer;
+let isUpdating = false;
+
+function startUpdateTime(lastUpdated) {
+  const text = document.getElementById('updateText');
+  const icon = document.getElementById('updateIcon');
+
+  if (updateTimer) {
+    clearInterval(updateTimer);
+  }
+
+  function refresh() {
+    // 업데이트 중이면 Last Updated를 덮어쓰지 않음
+    if (isUpdating) return;
+
+    icon.textContent = '🔄';
+    text.textContent = `Last Updated ${timeAgo(lastUpdated)}`;
+  }
+
+  refresh();
+
+  updateTimer = setInterval(refresh, 1000);
+}
+
 async function getUpdateStatus() {
   const url = `${API}/player_updates?select=*&alias=eq.${alias}&gateway=eq.${gateway}`;
 
@@ -291,6 +347,7 @@ async function updatePlayer() {
   const text = document.getElementById('updateText');
 
   btn.disabled = true;
+  isUpdating = true;
   icon.textContent = '⏳';
   icon.classList.add('spin');
   text.textContent = 'Updating';
@@ -307,16 +364,14 @@ async function updatePlayer() {
       }),
     });
 
-    const result = await res.json();
-
-    await waitForUpdate();
-
     // 업데이트 완료
-    let seconds = 60;
-
+    let seconds = 10;
     icon.classList.remove('spin');
     icon.textContent = `🔒`;
     text.textContent = `${seconds}초 후 재업데이트`;
+
+    const result = await res.json();
+    await waitForUpdate();
 
     const timer = setInterval(() => {
       seconds--;
@@ -327,8 +382,9 @@ async function updatePlayer() {
       } else {
         clearInterval(timer);
         btn.disabled = false;
-        icon.textContent = `🔄`;
-        text.textContent = 'Update';
+        isUpdating = false;
+        icon.textContent = `✅`;
+        text.textContent = 'Update Completed!';
       }
     }, 1000);
   } catch (err) {
