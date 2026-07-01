@@ -366,10 +366,7 @@ async function updatePlayer() {
 
     // 업데이트 완료
     let seconds = 10;
-    icon.classList.remove('spin');
-    icon.textContent = `🔒`;
-    text.textContent = `${seconds}초 후 재업데이트`;
-
+    
     const result = await res.json();
     await waitForUpdate();
 
@@ -377,6 +374,7 @@ async function updatePlayer() {
       seconds--;
 
       if (seconds > 0) {
+        icon.classList.remove('spin');
         icon.textContent = `🔒`;
         text.textContent = `${seconds}초 후 재업데이트`;
       } else {
